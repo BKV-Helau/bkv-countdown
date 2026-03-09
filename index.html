@@ -36,11 +36,9 @@ width:420px;
 }
 
 #days{
-font-size:90px;
+font-size:48px;
 font-weight:900;
 color:#0a3ea8;
-display:block;
-letter-spacing:2px;
 text-shadow:
 2px 2px 0 #ffd200,
 4px 4px 6px rgba(0,0,0,0.25);
@@ -71,10 +69,8 @@ font-weight:bold;
 
 <div id="countdown">
 
-<span id="days"></span>
-
 <div id="text">
-Noch Tage<br>
+Noch <span id="days"></span> Tage<br>
 bis zum Sessionstart!
 </div>
 
@@ -114,4 +110,5 @@ setInterval(updateCountdown,60000);
 
 </body>
 </html>
+
 
