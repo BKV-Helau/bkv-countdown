@@ -2,71 +2,65 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<title>BKV Countdown</title>
+
 <style>
 body{
 margin:0;
-background:transparent;
-text-align:center;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+background:#ffffff;
 font-family:Arial;
 }
 
-canvas{
-max-width:100%;
+.container{
+position:relative;
+}
+
+img{
+width:800px;
 height:auto;
+display:block;
+}
+
+#countdown{
+position:absolute;
+top:43%;
+left:50%;
+transform:translate(-50%,-50%);
+font-size:48px;
+font-weight:bold;
+color:#1b3f8b;
 }
 </style>
 </head>
 
 <body>
 
-<canvas id="canvas" width="800" height="600"></canvas>
+<div class="container">
+<img src="fossi.png">
+<div id="countdown">...</div>
+</div>
 
 <script>
 
-const target = new Date("2026-11-11T11:11:00");
-const now = new Date();
+function updateCountdown(){
 
-const diff = target - now;
+const eventDate = new Date("Nov 11, 2026 11:11:00").getTime();
+const now = new Date().getTime();
+
+const diff = eventDate - now;
+
 const days = Math.floor(diff / (1000*60*60*24));
 
-let line1 = "Noch " + days + " Tage";
-let line2 = "bis zum Sessionstart!";
-
-if(days <= 100){
-line2 = "🎉 Der Countdown läuft!";
-}
-
-if(days <= 50){
-line2 = "🥁 Der BKV rückt näher!";
-}
-
-if(days <= 10){
-line2 = "🎭 Bald geht's los!";
-}
-
-if(days <= 0){
-line1 = "👑 HEUTE";
-line2 = "SESSIONSTART – BKV HELAU!";
-}
-
-const canvas = document.getElementById("canvas");
-const ctx = canvas.getContext("2d");
-
-const img = new Image();
-img.src = "fossi.png";
-
-img.onload = function(){
-
-ctx.drawImage(img,0,0,800,600);
-
-ctx.font="bold 46px Arial";
-ctx.fillStyle="#003399";
-ctx.textAlign="center";
-
-ctx.fillText(line1,400,330);
-ctx.fillText(line2,400,380);
+document.getElementById("countdown").innerHTML = days;
 
 }
+
+updateCountdown();
+setInterval(updateCountdown,60000);
 
 </script>
 
