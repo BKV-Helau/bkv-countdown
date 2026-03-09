@@ -30,9 +30,10 @@ position:absolute;
 top:43%;
 left:50%;
 transform:translate(-50%,-50%);
-font-size:48px;
+font-size:42px;
 font-weight:bold;
 color:#1b3f8b;
+text-align:center;
 }
 </style>
 </head>
@@ -40,31 +41,18 @@ color:#1b3f8b;
 <body>
 
 <div class="container">
+
 <img src="fossi.png">
-<div id="countdown">Noch <span id="days"></span> Tage<br>bis zum Sessionstart!</div>
+
+<div id="countdown">
+Noch <span id="days"></span> Tage<br>
+bis zum Sessionstart!
+</div>
+
 </div>
 
 <script>
 
 function updateCountdown(){
 
-const eventDate = new Date("Nov 11, 2026 11:11:00").getTime();
-const now = new Date().getTime();
-
-const diff = eventDate - now;
-
-const days = Math.floor(diff / (1000*60*60*24));
-
-document.getElementById("days").innerHTML = days;
-
-}
-
-updateCountdown();
-setInterval(updateCountdown,60000);
-
-</script>
-
-</body>
-</html>
-
-
+const
