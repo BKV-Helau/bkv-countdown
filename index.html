@@ -5,13 +5,14 @@
 <title>BKV Countdown</title>
 
 <style>
+
 body{
 margin:0;
 display:flex;
 justify-content:center;
 align-items:center;
 height:100vh;
-background:#ffffff;
+background:white;
 font-family:Arial;
 }
 
@@ -20,21 +21,38 @@ position:relative;
 }
 
 img{
-width:800px;
+width:850px;
 height:auto;
 display:block;
 }
 
 #countdown{
 position:absolute;
-top:43%;
+top:46%;
 left:50%;
 transform:translate(-50%,-50%);
-font-size:42px;
-font-weight:bold;
-color:#1b3f8b;
 text-align:center;
+color:#1b3f8b;
 }
+
+#days{
+font-size:72px;
+font-weight:bold;
+display:block;
+}
+
+#text{
+font-size:28px;
+font-weight:bold;
+}
+
+#extra{
+margin-top:10px;
+font-size:20px;
+color:#e39b00;
+font-weight:bold;
+}
+
 </style>
 </head>
 
@@ -45,8 +63,16 @@ text-align:center;
 <img src="fossi.png">
 
 <div id="countdown">
-Noch <span id="days"></span> Tage<br>
+
+<span id="days"></span>
+
+<div id="text">
+Noch Tage<br>
 bis zum Sessionstart!
+</div>
+
+<div id="extra"></div>
+
 </div>
 
 </div>
@@ -55,4 +81,29 @@ bis zum Sessionstart!
 
 function updateCountdown(){
 
-const
+const eventDate = new Date("Nov 11, 2026 11:11:00").getTime();
+const now = new Date().getTime();
+
+const diff = eventDate - now;
+
+const days = Math.floor(diff / (1000*60*60*24));
+
+document.getElementById("days").innerHTML = days;
+
+if(days < 10){
+document.getElementById("extra").innerHTML = "🥳 Bald geht’s los!";
+}
+
+if(days < 100){
+document.body.style.background = "#fff8e6";
+}
+
+}
+
+updateCountdown();
+setInterval(updateCountdown,60000);
+
+</script>
+
+</body>
+</html>
