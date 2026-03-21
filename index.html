@@ -34,16 +34,16 @@ display:block;
 
 #countdown{
 position:absolute;
-top:47%;
-left:53%;
+top:55%;
+left:50%;
 transform:translate(-50%,-50%);
 text-align:center;
 width:60%;
 }
 
 #days{
-font-size:7vw;
-font-weight:900;
+font-size: clamp(40px, 8vw, 90px);
+font-weight: bold;
 color:#002f87;
 text-shadow:
   1px 1px 0 #ffd200,
@@ -51,7 +51,7 @@ text-shadow:
 }
 
 #text{
-font-size:4vw;
+font-size: clamp(16px, 3vw, 28px);
 font-weight:700;
 color:#002f87;
 line-height:1.2;
