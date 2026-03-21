@@ -36,6 +36,16 @@ transform:translate(-50%,-50%);
 text-align:center;
 }
 
+#prefix{
+  font-size: clamp(16px, 3vw, 28px);
+  font-weight: 700;
+  color: #002f87;
+  text-shadow: 1px 1px 0 #ffffff, 
+    2px 2px 4px
+rgba(0,0,0,0.3);
+  margin-bottom: 5px;
+}
+
 #days{
 font-size: clamp(40px, 8vw, 90px);
 font-weight: bold;
@@ -72,10 +82,10 @@ font-weight:bold;
 <img src="fossi.png">
 
 <div id="countdown">
-<div id="text">Noch<br>
+<div id="prefix">Noch</div>
   <div id="days">---</div> 
   <div id="text">Tage<br>
-bis zum Sessionstart!
+bis zum Sessionstart!</div>
 </div>
 
 <div id="extra"></div>
